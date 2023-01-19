@@ -1,0 +1,5 @@
+- constant 存放常量类，以XxxConstant命名
+- dto 存放接口入参实体类，以XxxDTO命名
+- entity 存放数据库表实体类，命名不带PO，字段个数与数据库表一一对应
+- enums 存放枚举类，以XxxEnums命名
+- vo 存放视图层接口返回实体类，以XxxVO命名
