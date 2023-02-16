@@ -1,11 +1,11 @@
 package com.css.common.http;
 
-public class HttpParameters {
+public class HttpParams {
 
 	private String name;
 	private Object object;
 	
-	public HttpParameters(String name, Object object){
+	public HttpParams(String name, Object object){
 		this.name=name;
 		this.object=object;
 	}

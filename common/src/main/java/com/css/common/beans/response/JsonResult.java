@@ -1,6 +1,6 @@
 package com.css.common.beans.response;
 
-import com.css.common.beans.enums.ResponseCode;
+import com.css.common.beans.enums.ResultCode;
 import com.css.common.util.StringUtils;
 
 import java.io.Serializable;
@@ -19,7 +19,7 @@ public class JsonResult<T> extends AbstractResult implements Serializable {
     public static <T> JsonResult<T> ok(T data) {
         JsonResult<T> rb = new JsonResult<>();
         rb.code = OK;
-        rb.message = ResponseCode.OK.getMessage();
+        rb.message = ResultCode.OK.getMessage();
         rb.data = data;
         return rb;
     }
@@ -27,7 +27,7 @@ public class JsonResult<T> extends AbstractResult implements Serializable {
     public static <T> JsonResult<T> okRequest() {
         JsonResult<T> rb = new JsonResult<>();
         rb.code = OK;
-        rb.message = ResponseCode.OK.getMessage();
+        rb.message = ResultCode.OK.getMessage();
         rb.data = null;
         return rb;
     }
@@ -60,27 +60,27 @@ public class JsonResult<T> extends AbstractResult implements Serializable {
      * @return
      */
     public static <T> JsonResult<T> badRequest() {
-        return JsonResult.badRequest(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMessage());
+        return JsonResult.badRequest(ResultCode.ERROR.getCode(), ResultCode.ERROR.getMessage());
     }
 
     public static <T> JsonResult<T> badRequest(int code) {
         JsonResult<T> rb = new JsonResult<>();
         rb.code = code;
-        rb.message = ResponseCode.ERROR.getMessage();
+        rb.message = ResultCode.ERROR.getMessage();
         return rb;
     }
 
     public static <T> JsonResult<T> badRequest(String message) {
         JsonResult<T> rb = new JsonResult<>();
         rb.code = ERROR;
-        rb.message = StringUtils.defaultIfEmpty(message, ResponseCode.ERROR.getMessage());
+        rb.message = StringUtils.defaultIfEmpty(message, ResultCode.ERROR.getMessage());
         return rb;
     }
 
     public static <T> JsonResult<T> badRequest(int code, String message) {
         JsonResult<T> rb = new JsonResult<>();
         rb.code = code;
-        rb.message = StringUtils.defaultIfEmpty(message, ResponseCode.ERROR.getMessage());
+        rb.message = StringUtils.defaultIfEmpty(message, ResultCode.ERROR.getMessage());
         return rb;
     }
 

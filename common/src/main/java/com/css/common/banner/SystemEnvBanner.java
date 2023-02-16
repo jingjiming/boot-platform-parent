@@ -48,7 +48,6 @@ public class SystemEnvBanner implements Banner {
     private static final String MEMRORY_POOLS = "Memory Pools";
     private static final String NUMBER_OF_PROCESSORS = "NUMBER OF PROCESSORS";
 
-
     @Override
     public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
         /**
@@ -121,7 +120,7 @@ public class SystemEnvBanner implements Banner {
         // OS Temp Directory
         map.put(OS_TEMP_DIRECTORY, System.getenv().get("TEMP"));
         // Bootstrap Class
-        map.put(BOOTSTRAP_CLASS, "");
+        map.put(BOOTSTRAP_CLASS, properties.getProperty("sun.java.command"));
         // NUMBER_OF_PROCESSORS
         map.put(NUMBER_OF_PROCESSORS, System.getenv().get("NUMBER_OF_PROCESSORS"));
 
@@ -155,4 +154,5 @@ public class SystemEnvBanner implements Banner {
         System.out.println("-----------------------------------------------");*/
 
     }
+
 }

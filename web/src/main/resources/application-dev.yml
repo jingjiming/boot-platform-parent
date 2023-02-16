@@ -59,7 +59,9 @@ spring:
         filters: stat,slf4j
         # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
         connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   #redis集群
   redis:
     password: Admin123!@#

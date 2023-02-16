@@ -60,12 +60,14 @@ public class ReadDocUtil {
 
     /**
      * word 转 html
-     * @param document
+     * @param inputStream
      * @return
      * @throws ParserConfigurationException
      * @throws TransformerException
+     * @throws IOException
      */
-    private static String docToHtml(HWPFDocument document) throws ParserConfigurationException, TransformerException {
+    public static String docToHtml(InputStream inputStream) throws ParserConfigurationException, TransformerException, IOException {
+        HWPFDocument document = new HWPFDocument(inputStream);
         WordToHtmlConverter wordToHtmlConverter = new WordToHtmlConverter(DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument());
         wordToHtmlConverter.processDocument(document);
         Document htmlDocument = wordToHtmlConverter.getDocument();
@@ -86,11 +88,12 @@ public class ReadDocUtil {
 
     /**
      * docx 转 html
-     * @param document
+     * @param inputStream
      * @return
      * @throws Exception
      */
-    private static String docxToHtml(XWPFDocument document) throws Exception {
+    public static String docxToHtml(InputStream inputStream) throws Exception {
+        XWPFDocument document = new XWPFDocument(inputStream);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         XHTMLOptions options = XHTMLOptions.create();
         XHTMLConverter.getInstance().convert(document, baos, options);

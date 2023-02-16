@@ -1,15 +1,11 @@
 package com.css.common.util;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.*;
-import java.util.Enumeration;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
 
 /**
  * Copyright:
@@ -69,13 +65,12 @@ public class IpAddrUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return  null;
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
         InetAddress inetAddress;
         try {
-            System.out.println("111111 " + getServerIp());
             // 实例化InetAddress对象，返回本地主机
             inetAddress = InetAddress.getLocalHost();
             // 获取本地主机名
@@ -96,7 +91,7 @@ public class IpAddrUtils {
             System.out.println("此IP地址的完全限定域名：" + canonicalHostName);
             System.out.println("原始IP地址为：" + address[0] + "." + address[1] + "." + address[2] + "." + a);
             System.out.println("IP地址为：" + hostAddress);
-            System.out.println("是否能到达此IP地址：" + reachable);
+            System.out.println("IP地址是否可达：" + reachable);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }

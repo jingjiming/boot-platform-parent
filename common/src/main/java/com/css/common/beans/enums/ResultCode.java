@@ -6,9 +6,9 @@ import com.css.common.beans.error.IErrCode;
 /**
  * Created by jiming.jing on 2020/2/26.
  */
-public enum ResponseCode implements IErrCode {
+public enum ResultCode implements IErrCode {
 
-    OK(0, "ok"),
+    OK(0, "success"),
     ERROR(999, "系统报错，请联系运维人员！"),
     SESSION_TIMEOUT(911, "session timeout."),
     DATA_ACCESS_ERROR(912, "数据访问异常"),
@@ -24,7 +24,7 @@ public enum ResponseCode implements IErrCode {
     private final int code;
     private final String message;
 
-    ResponseCode(int code, String message) {
+    ResultCode(int code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -39,10 +39,10 @@ public enum ResponseCode implements IErrCode {
         return message;
     }
 
-    public static ResponseCode toEnum(String name) {
-        for (ResponseCode responseCode : ResponseCode.values()) {
-            if (responseCode.toString().equalsIgnoreCase(name)) {
-                return responseCode;
+    public static ResultCode toEnum(String name) {
+        for (ResultCode resultCode : ResultCode.values()) {
+            if (resultCode.toString().equalsIgnoreCase(name)) {
+                return resultCode;
             }
         }
         return null;

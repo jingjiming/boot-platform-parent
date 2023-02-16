@@ -9,8 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by hpt on 2016/4/26.
  * 字符串工具类, 继承org.apache.commons.lang3.StringUtils类
+ * Created by jiming.jing on 2021/1/8.
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
     private static final char SEPARATOR = '_';

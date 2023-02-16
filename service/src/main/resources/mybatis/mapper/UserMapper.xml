@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.css.bootbase.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.css.bootbase.entity.User">
+        <id column="USER_ID" property="userId" />
+        <result column="USER_NAME" property="userName" />
+        <result column="AGE" property="age" />
+        <result column="GENDER" property="gender" />
+        <result column="ID_CARD" property="idCard" />
+        <result column="DEL_FLAG" property="delFlag" />
+        <result column="CREATOR" property="creator" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="LAST_EDITOR" property="lastEditor" />
+        <result column="LAST_TIME" property="lastTime" />
+    </resultMap>
+
+</mapper>

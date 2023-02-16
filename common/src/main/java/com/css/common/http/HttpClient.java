@@ -39,7 +39,7 @@ public class HttpClient {
      * @return
      * @throws Exception
      */
-    public static String doGet(String url, HttpParameters[] params) throws Exception {
+    public static String doGet(String url, HttpParams[] params) throws Exception {
         try {
             HttpURLConnection connection
                     = (HttpURLConnection) new URL(url + "?" + encodeParams(params)).openConnection();
@@ -116,44 +116,39 @@ public class HttpClient {
      * POST请求
      *
      * @param url
-     * @param httpParameters
+     * @param httpParams
      * @return
      * @throws Exception
      */
-    public static String doPost(String url, HttpParameters httpParameters) throws Exception {
-//        try {
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setRequestMethod("POST");
-            connection.setConnectTimeout(CONNECT_TIMEOUT);
-            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            connection.setDoOutput(true);
+    public static String doPost(String url, HttpParams httpParams) throws Exception {
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        connection.setRequestMethod("POST");
+        connection.setConnectTimeout(CONNECT_TIMEOUT);
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        connection.setDoOutput(true);
 
-            String paramStr = "";
-            if (httpParameters != null) {
-                //只有一个参数body，且不用进行编码
-                paramStr = httpParameters.getObject().toString();
+        String paramStr = "";
+        if (httpParams != null) {
+            //只有一个参数body，且不用进行编码
+            paramStr = httpParams.getObject().toString();
+        }
+
+        byte[] bytes = paramStr.getBytes("UTF-8");
+        connection.setRequestProperty("Content-Length", Integer.toString(bytes.length));
+        OutputStream outputStream = connection.getOutputStream();
+        outputStream.write(bytes);
+        outputStream.flush();
+        outputStream.close();
+
+        HttpResponse response = new HttpResponse(connection);
+        int responseCode = response.getStatusCode();
+
+        if (responseCode != OK) {
+            if (responseCode < INTERNAL_SERVER_ERROR) {
+                log.error("code:{}", responseCode);
             }
-
-            byte[] bytes = paramStr.getBytes("UTF-8");
-            connection.setRequestProperty("Content-Length", Integer.toString(bytes.length));
-            OutputStream outputStream = connection.getOutputStream();
-            outputStream.write(bytes);
-            outputStream.flush();
-            outputStream.close();
-
-            HttpResponse response = new HttpResponse(connection);
-            int responseCode = response.getStatusCode();
-
-            if (responseCode != OK) {
-                if (responseCode < INTERNAL_SERVER_ERROR) {
-                    log.error("code:{}", responseCode);
-                }
-            }
-            return response.toString();
-//        } catch (Exception e) {
-//            log.error(e.getMessage());
-//        }
-//        return null;
+        }
+        return response.toString();
     }
 
     /**
@@ -261,7 +256,7 @@ public class HttpClient {
         return rs;
     }
 
-    private static String encodeParams(HttpParameters[] httpParams) throws Exception {
+    private static String encodeParams(HttpParams[] httpParams) throws Exception {
         StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < httpParams.length; i++) {
             if (i != 0) {

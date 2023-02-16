@@ -1,6 +1,6 @@
 package com.css.bootbase.config;
 
-import com.css.common.beans.enums.ResponseCode;
+import com.css.common.beans.enums.ResultCode;
 import com.css.common.beans.response.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +18,6 @@ public class GlobalException {
     public JsonResult<?> handleException(Exception e) {
         logger.error("Exception[message:{}]", e.toString());
         e.printStackTrace();
-        return JsonResult.badRequest(ResponseCode.ERROR.getMessage());
+        return JsonResult.badRequest(ResultCode.ERROR.getMessage());
     }
 }

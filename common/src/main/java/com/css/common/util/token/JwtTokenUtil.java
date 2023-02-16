@@ -11,7 +11,6 @@ import com.css.common.util.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -21,7 +20,6 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
 public class JwtTokenUtil {
 
     public static final Logger logger = LoggerFactory.getLogger(JwtTokenUtil.class);
@@ -180,33 +178,6 @@ public class JwtTokenUtil {
         }
         return info;
     }
-
-    /**
-     * 生成登录token
-     *
-     * @param userId
-     * @param userName
-     * @return
-     */
-    public static String createRDLoginToken(String userId, String userName) {
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(TOKEN_SECURITY);
-            JWTCreator.Builder builder = JWT.create()
-                    .withIssuer(ISSUER)
-                    //设置过期时间为1个月
-                    .withExpiresAt(DateUtils.addMonths(new Date(), 2));
-
-            builder.withClaim(LoginInfoConstants.USER_ID, userId);
-            builder.withClaim(LoginInfoConstants.USER_NAME, userName);
-            builder.withClaim(LoginInfoConstants.IS_LOGIN, true);
-
-            return builder.sign(algorithm);
-        } catch (Exception e) {
-            logger.error("登陆生成token失败,失败原因:{}", e);
-        }
-        return null;
-    }
-
 
     public static void main(String[] args) {
         LoginInfoEntity loginInfoEntity = new LoginInfoEntity();
