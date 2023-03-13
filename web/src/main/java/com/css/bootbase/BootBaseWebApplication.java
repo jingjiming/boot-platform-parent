@@ -62,5 +62,4 @@ public class BootBaseWebApplication extends SpringBootServletInitializer impleme
         //SpringApplication.run(BootBaseWebApplication.class, args);
     }
 
-
 }

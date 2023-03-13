@@ -90,7 +90,12 @@ public class ZipUtils {
             parameters.setEncryptionMethod(EncryptionMethod.ZIP_STANDARD);
         }
         try {
-            ZipFile zipFile = new ZipFile(dest, passwd.toCharArray());
+            ZipFile zipFile;
+            if (!StringUtils.isEmpty(passwd)) {
+                zipFile = new ZipFile(dest, passwd.toCharArray());
+            } else {
+                zipFile = new ZipFile(dest);
+            }
             if (srcFile.isDirectory()) {
                 // 如果不创建目录的话,将直接把给定目录下的文件压缩到压缩文件,即没有目录结构
                 if (!isCreateDir) {

@@ -42,6 +42,7 @@
         <mybatis-plus-generator.version>3.5.2</mybatis-plus-generator.version>
         <freemarker.version>2.3.32</freemarker.version>
         <lombok.version>1.18.24</lombok.version>
+        <httpclient.version>4.5.14</httpclient.version>
         <commons-codec.version>1.15</commons-codec.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-text.version>1.8</commons-text.version>
@@ -148,12 +149,6 @@
                 <version>2.4.4</version>
             </dependency>-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot.version}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.version}</version>
@@ -240,6 +235,12 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet-api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
