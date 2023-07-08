@@ -11,10 +11,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Copyright:
- * Author: jiming.jing
- * Date: 2017年12月1日
- * Description:
+ * @Author: jiming.jing
+ * @Date: 2017年12月1日
+ * @Description:
  */
 public class DateUtils {
     private static Logger logger = LoggerFactory.getLogger(DateUtils.class);

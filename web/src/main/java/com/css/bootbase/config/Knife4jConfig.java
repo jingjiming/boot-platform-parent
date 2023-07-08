@@ -19,7 +19,7 @@ import java.util.Arrays;
 @Configuration
 @EnableSwagger2
 @EnableKnife4j
-public class Swagger2Configuration {
+public class Knife4jConfig {
 
     public static final String VERSION = "1.0.0";
 
@@ -28,7 +28,8 @@ public class Swagger2Configuration {
         //设置请求头参数
         return new Docket(DocumentationType.SWAGGER_2)
                 //.enable(true)
-                .apiInfo(apiInfo()).securitySchemes(Arrays.asList(apiKey()))
+                .apiInfo(apiInfo())
+                .securitySchemes(Arrays.asList(apiKey()))
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .paths(PathSelectors.any())
@@ -41,10 +42,9 @@ public class Swagger2Configuration {
     }
 
     private ApiInfo apiInfo() {
-        Contact contact = new Contact("RD-INTELLI-TOOL", "http://localhost:8080/doc.html", "");
         return new ApiInfoBuilder().title("智能议案辅助工具")
                 .description("智能议案辅助工具API接口文档")
-                .contact(contact)
+                .contact(new Contact("RD-INTELLI-TOOL", "http://localhost:8080/doc.html", ""))
                 .version(VERSION).build();
     }
 }

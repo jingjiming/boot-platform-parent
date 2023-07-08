@@ -12,9 +12,9 @@ import java.security.NoSuchAlgorithmException;
  * SHA256加密算法
  * Created by kids on 2019/6/24.
  */
-public class SHA256Encrypt {
+public class SHA256 {
 
-    private static final Logger logger = LoggerFactory.getLogger(SHA256Encrypt.class);
+    private static final Logger logger = LoggerFactory.getLogger(SHA256.class);
     /**
      * SHA256 加密算法
      */
@@ -66,6 +66,6 @@ public class SHA256Encrypt {
 
     public static void main(String[] args) {
         String password = "1";
-        System.out.println("SHA256加密:{} " + SHA256Encrypt.sha256(password));
+        System.out.println("SHA256加密:{} " + SHA256.sha256(password));
     }
 }

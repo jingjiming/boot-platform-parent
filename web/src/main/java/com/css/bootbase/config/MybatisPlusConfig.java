@@ -55,6 +55,8 @@ public class MybatisPlusConfig {
                 configuration.setCacheEnabled(true);
                 configuration.setMapUnderscoreToCamelCase(true);
                 configuration.setCallSettersOnNulls(true);
+                // 同配置文件mybatis-plus:configuration:jdbc-type-for-null: 'null'
+                // 或在实体类对应字段上加注解@TableField(strategy=FieldStrategy.IGNORED)，忽略null值的判断
                 configuration.setJdbcTypeForNull(JdbcType.NULL);
         };
     }

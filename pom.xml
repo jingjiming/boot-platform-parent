@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.css.bootbase</groupId>
-    <artifactId>bootbase</artifactId>
+    <artifactId>boot-platform-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -20,6 +20,7 @@
         <module>model</module>
         <module>service</module>
         <module>web</module>
+        <module>oss-spring-boot-starter</module>
     </modules>
 
     <properties>
@@ -30,7 +31,7 @@
         <spring.version>5.3.25</spring.version>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
-        <druid.version>1.2.14</druid.version>
+        <druid.version>1.2.15</druid.version>
         <jwt.version>4.2.2</jwt.version>
         <knife4j.version>3.0.2</knife4j.version>
         <easypoi.version>4.4.0</easypoi.version>
@@ -43,17 +44,18 @@
         <freemarker.version>2.3.32</freemarker.version>
         <lombok.version>1.18.24</lombok.version>
         <httpclient.version>4.5.14</httpclient.version>
+        <jasypt.version>3.0.5</jasypt.version>
         <commons-codec.version>1.15</commons-codec.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <commons-text.version>1.8</commons-text.version>
-        <commons-beanutils.version>1.9.3</commons-beanutils.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-text.version>1.10.0</commons-text.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-pool2.version>2.11.1</commons-pool2.version>
         <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
         <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <junit.version>4.12</junit.version>
-        <zip4j.version>2.11.2</zip4j.version>
+        <zip4j.version>2.11.5</zip4j.version>
         <DmJdbcDriver18.version>8.1.2.141</DmJdbcDriver18.version>
         <jieba.version>1.0.2</jieba.version>
         <jsoup.version>1.11.3</jsoup.version>
@@ -148,6 +150,11 @@
                 <artifactId>spring-session-data-redis</artifactId>
                 <version>2.4.4</version>
             </dependency>-->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
