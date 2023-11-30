@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web</artifactId>
+    <artifactId>platform-web</artifactId>
     <packaging>jar</packaging>
 
     <profiles>
@@ -45,12 +45,12 @@
     <dependencies>
         <dependency>
             <groupId>com.css.bootbase</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>platform-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.css.bootbase</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>platform-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service</artifactId>
+    <artifactId>platform-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -19,12 +19,12 @@
     <dependencies>
         <dependency>
             <groupId>com.css.bootbase</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>platform-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.css.bootbase</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>platform-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -109,7 +109,7 @@
     </dependencies>
 
     <build>
-        <finalName>service-1.0-SNAPSHOT</finalName>
+        <finalName>platform-service-1.0-SNAPSHOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

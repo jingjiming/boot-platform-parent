@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>oss-spring-boot-starter</artifactId>
+    <artifactId>platform-oss</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>oss-spring-boot-starter</name>
     <description>企业级OSS对象存储服务Spring Boot Starter，开箱即用。基于AmazonS3协议，适配市面上的对象存储服务如：阿里云OSS、腾讯COS、七牛云OSS、Minio等。</description>
