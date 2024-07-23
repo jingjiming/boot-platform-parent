@@ -26,11 +26,16 @@ spring:
       strict: false
       datasource:
         #master数据源
+        #master:
+          #driverClassName: dm.jdbc.driver.DmDriver
+          #url: jdbc:dm://localhost:5236?schema=SYSDBA&useSSL=false&useUnicode=true&autoReconnect=true&allowMultiQueries=true&failOverReadOnly=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+          #username: SYSDBA
+          #password: SYSDBA
         master:
-          driverClassName: dm.jdbc.driver.DmDriver
-          url: jdbc:dm://localhost:5236?schema=SYSDBA&useSSL=false&useUnicode=true&autoReconnect=true&allowMultiQueries=true&failOverReadOnly=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
-          username: SYSDBA
-          password: SYSDBA
+          driverClassName: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://192.168.100.222:3306/test?useSSL=false&useUnicode=true&autoReconnect=true&allowMultiQueries=true&failOverReadOnly=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+          username: root
+          password: wtoe123456
       druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
         # 连接池的配置信息
         # 初始化时建立物理连接的个数，最小，最大
